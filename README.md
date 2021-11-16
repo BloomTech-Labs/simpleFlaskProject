@@ -1,4 +1,4 @@
 # Simple Flask Project
 
 
-Example web app for Lambda School Labs: Data Science Department.
+Example web app for BloomTech Labs: Data Science Department.
