@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>Simple Flask Site</title>
+    <title>Simple Flask App</title>
     <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/form.css">
     <link rel="stylesheet" href="/static/css/colors.css">
+    <link rel="icon" href="/static/images/favicon.ico">
 </head>
 <body>
-<div class="wrapper">
+<section>
     <header>
-        <h1><a href="/">Simple Flask Site</a></h1>
+        <h1><a href="/">Simple Flask App</a></h1>
     </header>
     <nav>
         <ul>
@@ -19,15 +19,13 @@
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
         </ul>
     </nav>
-    <div class="container">
+    <article>
         {% block content %}
         {% endblock %}
-    </div>
+    </article>
     <footer>
-        <p class="right">
-            BloomTech Labs
-        </p>
+        <p>© 2022 Bloom Institute of Technology</p>
     </footer>
-</div>
+</section>
 </body>
 </html>

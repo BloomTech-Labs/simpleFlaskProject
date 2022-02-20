@@ -8,35 +8,34 @@ API = Flask(__name__)
 
 @API.route('/')
 def home():
-    rand_val = random.randint(1, 20)
+    random_value = random.randint(1, 20)
     return render_template(
         "home.html",
-        rand_val=rand_val,
+        random_value=random_value,
     )
 
 
 @API.route("/about")
 def about():
-    data = pd.read_csv("data.csv")
+    table = pd.read_csv("data.csv", index_col="id").to_html(index=False)
     return render_template(
         "about.html",
-        data=data.to_html(index=False),
+        table=table,
     )
 
 
 @API.route("/contact", methods=["GET", "POST"])
 def contact():
-    data = {
-        "Name": request.values.get("Name"),
-        "Email": request.values.get("Email"),
-        "Favorite": request.values.get("Favorite"),
-        "Message": request.values.get("Message") or "",
-        "Surf": request.values.get("Surf") or False,
-        "Permission": request.values.get("Permission") or False,
-    }
-    if data.get("Name"):
+    if request.method == "POST":
         df = pd.read_csv("data.csv", index_col="id")
-        df.loc[len(df.index)] = data.values()
+        df.loc[len(df.index)] = [
+            request.values.get("Name"),
+            request.values.get("Email"),
+            request.values.get("Favorite"),
+            request.values.get("Message") or " ",
+            request.values.get("Surf", False),
+            request.values.get("Permission", False),
+        ]
         df.to_csv("data.csv")
     return render_template("contact.html")
 

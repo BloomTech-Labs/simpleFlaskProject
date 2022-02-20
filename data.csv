@@ -4,3 +4,4 @@ id,Name,Email,Favorite,Message,Surf,Contact
 2,Jake,fake@gmail.com,Google,Sup,True,True
 3,Jane,fake@gmail.com,Google,Hi there,False,False
 4,Hellen,her@us.com,Google,hi,True,False
+6,Sara Singer,s.singer@this.that,Google, ,False,True
